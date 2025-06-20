@@ -38,6 +38,7 @@
     </head>
     <body>
         <h1>Links to my other websites.</h1>
+        <p id="counter">Loading visits...</p>
         <br>
         <button class="btn" onclick="window.location.href='https://aidan1232.github.io/Radio/index.html'">
             Radio Website
@@ -67,4 +68,13 @@
             Blocky goat simulator
         </button>
     </body>
+    <script>
+        fetch('https://api.countapi.xyz/hit/aidan1232.github.io/visits')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("counter").textContent =
+                `This site has been visited ${data.value} times.`;
+        });
+
+    </script>
 </html>
